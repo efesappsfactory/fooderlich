@@ -37,6 +37,8 @@ class _HomeState extends State<Home> {
       body: pages[_selectedIndex],
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
+        currentIndex: _selectedIndex,
+        onTap: _onItemTapped,
         items: <BottomNavigationBarItem>[
           const BottomNavigationBarItem(
             icon: Icon(Icons.card_giftcard),
