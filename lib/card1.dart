@@ -19,18 +19,30 @@ class Card1 extends StatelessWidget {
               category,
               style: FooderlichTheme.darkTextTheme.bodyText1,
             ),
-            Text(
-              title,
-              style: FooderlichTheme.darkTextTheme.headline6,//error en el libro
+            Positioned(
+              child: Text(
+                title,
+                style:
+                    FooderlichTheme.darkTextTheme.headline2, //error en el libro
+              ),
+              top: 20,
             ),
-            Text(
-              description,
-              style: FooderlichTheme.darkTextTheme.bodyText1,
+            Positioned(
+              child: Text(
+                description,
+                style: FooderlichTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 30,
+              right: 0,
             ),
-            Text(
-              chef,
-              style: FooderlichTheme.darkTextTheme.bodyText1,
-            ),
+            Positioned(
+              child: Text(
+                chef,
+                style: FooderlichTheme.darkTextTheme.bodyText1,
+              ),
+              bottom: 10,
+              right: 0,
+            )
           ],
         ),
         padding: const EdgeInsets.all(16),
