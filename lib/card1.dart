@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'fooderlich_theme.dart';
 
 class Card1 extends StatelessWidget {
   const Card1({Key? key}) : super(key: key);
@@ -12,6 +13,26 @@ class Card1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Center(
       child: Container(
+        child: Stack(
+          children: [
+            Text(
+              category,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+            Text(
+              title,
+              style: FooderlichTheme.darkTextTheme.headline6,//error en el libro
+            ),
+            Text(
+              description,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+            Text(
+              chef,
+              style: FooderlichTheme.darkTextTheme.bodyText1,
+            ),
+          ],
+        ),
         padding: const EdgeInsets.all(16),
         constraints: const BoxConstraints.expand(
           width: 350,
