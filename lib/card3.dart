@@ -21,7 +21,12 @@ class Card3 extends StatelessWidget {
         ),
         child: Stack(
           children: [
-            
+            Container(
+              decoration: BoxDecoration(
+                color: Colors.black.withOpacity(0.6),
+                borderRadius: const BorderRadius.all(Radius.circular(10.0)),
+              ),
+            ),
           ],
         ),
       ),
