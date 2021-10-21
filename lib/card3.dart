@@ -50,6 +50,72 @@ class Card3 extends StatelessWidget {
                 ],
               ),
             ),
+            Center(
+              child: Wrap(
+                alignment: WrapAlignment.start,
+                spacing: 12,
+                children: [
+                  Chip(
+                    label: Text(
+                      "Healthy",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () => print("delete"),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Vegan",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                    onDeleted: () => print("delete"),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Carrots",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Chicken",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Milk",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Cake",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Salad",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                  Chip(
+                    label: Text(
+                      "Hamburger",
+                      style: FooderlichTheme.darkTextTheme.bodyText1,
+                    ),
+                    backgroundColor: Colors.black.withOpacity(0.7),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ),
