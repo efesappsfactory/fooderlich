@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'fooderlich_theme.dart';
 import 'circle_image.dart';
 
-class AuthorCard extends StatelessWidget {
+class AuthorCard extends StatefulWidget {
   final String authorName;
   final String title;
   final ImageProvider? imageProvider;
@@ -15,6 +15,12 @@ class AuthorCard extends StatelessWidget {
   }) : super(key: key);
 
   @override
+  _AuthorCardState createState() => _AuthorCardState();
+}
+
+class _AuthorCardState extends State<AuthorCard> {
+  bool _isFavorited = false;
+  @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(16),
@@ -24,7 +30,7 @@ class AuthorCard extends StatelessWidget {
           Row(
             children: [
               CircleImage(
-                imageProvider: imageProvider,
+                imageProvider: widget.imageProvider,
                 imageRadius: 28,
               ),
               const SizedBox(width: 8),
@@ -32,11 +38,11 @@ class AuthorCard extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    authorName,
+                    widget.authorName,
                     style: FooderlichTheme.lightTextTheme.headline2,
                   ),
                   Text(
-                    title,
+                    widget.title,
                     style: FooderlichTheme.lightTextTheme.headline3,
                   )
                 ],
@@ -44,13 +50,10 @@ class AuthorCard extends StatelessWidget {
             ],
           ),
           IconButton(
-            icon: const Icon(Icons.favorite_border),
+            icon: Icon(_isFavorited ? Icons.favorite : Icons.favorite_border),
             iconSize: 30,
-            color: Colors.grey[400],
-            onPressed: () {
-              const snackBar = SnackBar(content: Text("Favorite Pressed"));
-              ScaffoldMessenger.of(context).showSnackBar(snackBar);
-            },
+            color: Colors.red[400],
+            onPressed: () => setState(() => _isFavorited = !_isFavorited),
           )
         ],
       ),
