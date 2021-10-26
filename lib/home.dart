@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'components/card1.dart';
-import 'components/card2.dart';
-import 'components/card3.dart';
 
 class Home extends StatefulWidget {
   const Home({Key? key}) : super(key: key);
