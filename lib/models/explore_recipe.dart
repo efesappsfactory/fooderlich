@@ -58,7 +58,7 @@ class ExploreRecipe {
     }
 
     if (json['instructions'] != null) {
-      json['instuctions']
+      json['instructions']
           .forEach((v) => instructions.add(Instruction.fromJson(v)));
     }
 
@@ -73,10 +73,10 @@ class ExploreRecipe {
       authorName: json['authorName'] ?? '',
       role: json['role'] ?? '',
       profileImage: json['profileImage'] ?? '',
-      durationInMinutes: json['durarionInMinutes'] ?? '',
+      durationInMinutes: json['durarionInMinutes'] ?? 0,
       dietType: json['dietType'] ?? '',
       calories: json['calories'] ?? 0,
-      tags: json['tags'] ?? [],
+      tags: json['tags'].cast<String>() ?? [],
       description: json['description'] ?? '',
       source: json['source'] ?? '',
       ingredients: ingredients,
