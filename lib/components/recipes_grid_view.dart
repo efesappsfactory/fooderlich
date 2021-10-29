@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import '../components/components.dart';
 import '../models/models.dart';
 
-class RecipeGridView extends StatelessWidget {
+class RecipesGridView extends StatelessWidget {
   final List<SimpleRecipe> recipes;
-  const RecipeGridView({
+  const RecipesGridView({
     Key? key,
     required this.recipes,
   }) : super(key: key);
