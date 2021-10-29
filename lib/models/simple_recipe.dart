@@ -20,8 +20,8 @@ class SimpleRecipe {
       id: json['id'] as String,
       dishImage: json['dishImage'] as String,
       title: json['title'] as String,
-      duration: ['duration'] as String,
-      source: ['source'] as String,
+      duration: json['duration'] as String,
+      source: json['source'] as String,
       information: json['information'].cast<String>() as List<String>,
     );
   }
