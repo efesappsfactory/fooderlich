@@ -21,8 +21,7 @@ class _ExploreScreenState extends State<ExploreScreen> {
       if (!_controller.position.outOfRange) {
         if (_controller.offset >= _controller.position.maxScrollExtent) {
           print("I am at the bottom!");
-        }
-        if (_controller.offset <= _controller.position.minScrollExtent) {
+        } else if (_controller.offset <= _controller.position.minScrollExtent) {
           print("I am at the top!");
         }
       }
