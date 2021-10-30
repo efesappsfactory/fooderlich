@@ -18,13 +18,13 @@ class _ExploreScreenState extends State<ExploreScreen> {
   void initState() {
     _controller = ScrollController();
     _controller.addListener(() {
-      if (_controller.offset >= _controller.position.maxScrollExtent &&
-          !_controller.position.outOfRange) {
-        print("I am at the bottom!");
-      }
-      if (_controller.offset <= _controller.position.minScrollExtent &&
-          !_controller.position.outOfRange) {
-        print("I am at the top!");
+      if (!_controller.position.outOfRange) {
+        if (_controller.offset >= _controller.position.maxScrollExtent) {
+          print("I am at the bottom!");
+        }
+        if (_controller.offset <= _controller.position.minScrollExtent) {
+          print("I am at the top!");
+        }
       }
     });
     super.initState();
