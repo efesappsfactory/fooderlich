@@ -78,6 +78,10 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
             buildImportanceField(),
             buildDataField(context),
             buildTimeField(context),
+            const SizedBox(
+              height: 10.0,
+            ),
+            buildColorPicker(context),
           ],
         ),
       ),
@@ -234,6 +238,49 @@ class _GroceryItemScreenState extends State<GroceryItemScreen> {
           ],
         ),
         Text("${_timeOfDay.format(context)}"),
+      ],
+    );
+  }
+
+  Widget buildColorPicker(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: [
+        Row(
+          children: [
+            Container(
+              height: 50,
+              width: 10,
+              color: _currentColor,
+            ),
+            const SizedBox(
+              width: 8.0,
+            ),
+            Text(
+              "Color",
+              style: GoogleFonts.lato(fontSize: 28.0),
+            ),
+          ],
+        ),
+        TextButton(
+          child: const Text("Select"),
+          onPressed: () => showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+              content: BlockPicker(
+                pickerColor: Colors.white,
+                onColorChanged: (color) =>
+                    setState(() => _currentColor = color),
+              ),
+              actions: [
+                TextButton(
+                  child: const Text("Save"),
+                  onPressed: () => Navigator.of(context).pop(),
+                ),
+              ],
+            ),
+          ),
+        ),
       ],
     );
   }
