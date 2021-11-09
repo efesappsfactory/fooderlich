@@ -21,6 +21,8 @@ class Fooderlich extends StatefulWidget {
 class _FooderlichState extends State<Fooderlich> {
   final _groceryManager = GroceryManager();
   final _profileManager = ProfileManager();
+  final _appStateManager = AppStateManager();
+
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
@@ -30,6 +32,9 @@ class _FooderlichState extends State<Fooderlich> {
         ),
         ChangeNotifierProvider(
           create: (context) => _profileManager,
+        ),
+        ChangeNotifierProvider(
+          create: (context) => _appStateManager,
         ),
       ],
       child: Consumer<ProfileManager>(
