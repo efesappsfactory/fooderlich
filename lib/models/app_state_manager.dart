@@ -27,4 +27,9 @@ class AppStateManager extends ChangeNotifier {
       },
     );
   }
+
+  void login(String username, String password) {
+    _loggedIn = true;
+    notifyListeners();
+  }
 }
