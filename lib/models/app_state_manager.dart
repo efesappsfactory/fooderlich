@@ -37,4 +37,9 @@ class AppStateManager extends ChangeNotifier {
     _onboardingComplete = true;
     notifyListeners();
   }
+
+  void goToTab(index) {
+    _selectedTab = index;
+    notifyListeners();
+  }
 }
