@@ -42,4 +42,9 @@ class AppStateManager extends ChangeNotifier {
     _selectedTab = index;
     notifyListeners();
   }
+
+  void goToRecipes() {
+    _selectedTab = FooderlichTab.recipes;
+    notifyListeners();
+  }
 }
