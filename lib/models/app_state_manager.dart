@@ -32,4 +32,9 @@ class AppStateManager extends ChangeNotifier {
     _loggedIn = true;
     notifyListeners();
   }
+
+  void completeOnboarding() {
+    _onboardingComplete = true;
+    notifyListeners();
+  }
 }
