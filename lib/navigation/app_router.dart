@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/models.dart';
+import '../screens/screens.dart';
 
 class AppRouter extends RouterDelegate
     with ChangeNotifier, PopNavigatorRouterDelegateMixin {
@@ -33,7 +34,9 @@ class AppRouter extends RouterDelegate
     return Navigator(
       key: navigatorKey,
       onPopPage: _handlePopPage,
-      pages: [],
+      pages: [
+        if (!appStateManager.isInitialized) SplashScreen.page(),
+      ],
     );
   }
 
