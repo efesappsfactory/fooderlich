@@ -10,18 +10,41 @@ class AppRouter extends RouterDelegate
   final GroceryManager groceryManager;
   final ProfileManager profileManager;
 
-  AppRouter(
-      {required this.appStateManager,
-      required this.groceryManager,
-      required this.profileManager})
-      : navigatorKey = GlobalKey<NavigatorState>() {}
+  AppRouter({
+    required this.appStateManager,
+    required this.groceryManager,
+    required this.profileManager,
+  }) : navigatorKey = GlobalKey<NavigatorState>() {
+    appStateManager.addListener(notifyListeners);
+    groceryManager.addListener(notifyListeners);
+    profileManager.addListener(notifyListeners);
+  }
+
+  @override
+  void dispose() {
+    appStateManager.removeListener(notifyListeners);
+    groceryManager.removeListener(notifyListeners);
+    profileManager.removeListener(notifyListeners);
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Navigator(
       key: navigatorKey,
+      onPopPage: _handlePopPage,
       pages: [],
     );
+  }
+
+  bool _handlePopPage(
+    Route<dynamic> route,
+    result,
+  ) {
+    if (!route.didPop(result)) {
+      return false;
+    }
+    return true;
   }
 
   @override
