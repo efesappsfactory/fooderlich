@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fooderlich/screens/onboarding_screen.dart';
 import '../models/models.dart';
 import '../screens/screens.dart';
 
@@ -38,6 +39,8 @@ class AppRouter extends RouterDelegate
         if (!appStateManager.isInitialized) SplashScreen.page(),
         if (appStateManager.isInitialized && !appStateManager.isLoggedIn)
           LoginScreen.page(),
+        if (appStateManager.isLoggedIn && !appStateManager.isOnboardingComplete)
+          OnboardingScreen.page(),
       ],
     );
   }
