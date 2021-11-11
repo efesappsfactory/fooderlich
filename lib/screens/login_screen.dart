@@ -1,6 +1,16 @@
+import 'package:provider/provider.dart';
 import 'package:flutter/material.dart';
+import '../models/models.dart';
 
 class LoginScreen extends StatelessWidget {
+  static MaterialPage page() {
+    return MaterialPage(
+      name: FooderlichPages.loginPath,
+      key: ValueKey(FooderlichPages.loginPath),
+      child: const LoginScreen(),
+    );
+  }
+
   final String? userName;
 
   const LoginScreen({
@@ -55,7 +65,9 @@ class LoginScreen extends StatelessWidget {
           "Login",
           style: TextStyle(color: Colors.white),
         ),
-        onPressed: () async {},
+        onPressed: () async =>
+            Provider.of<AppStateManager>(context, listen: false)
+                .login("mockUserName", "mockPassword"),
       ),
     );
   }
