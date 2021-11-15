@@ -52,6 +52,9 @@ class AppRouter extends RouterDelegate
     if (!route.didPop(result)) {
       return false;
     }
+    if (route.settings.name == FooderlichPages.onboardingPath) {
+      appStateManager.logout();
+    }
     return true;
   }
 
