@@ -36,38 +36,42 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text(
-          "Fooderlich",
-          style: Theme.of(context).textTheme.headline6,
+    return Consumer<AppStateManager>(
+      builder: (context, appStateManager, child) => Scaffold(
+        appBar: AppBar(
+          title: Text(
+            "Fooderlich",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          actions: [
+            profileButton(),
+          ],
         ),
-        actions: [
-          profileButton(),
-        ],
-      ),
-      body: IndexedStack(
-        index: widget.currentTab,
-        children: pages,
-      ),
-      bottomNavigationBar: BottomNavigationBar(
-        selectedItemColor: Theme.of(context).textSelectionTheme.selectionColor,
-        currentIndex: widget.currentTab,
-        onTap: (index) {},
-        items: <BottomNavigationBarItem>[
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.explore),
-            label: "Explore",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.book),
-            label: "Recipes",
-          ),
-          const BottomNavigationBarItem(
-            icon: Icon(Icons.list),
-            label: "To Buy",
-          )
-        ],
+        body: IndexedStack(
+          index: widget.currentTab,
+          children: pages,
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          selectedItemColor:
+              Theme.of(context).textSelectionTheme.selectionColor,
+          currentIndex: widget.currentTab,
+          onTap: (index) => Provider.of<AppStateManager>(context, listen: false)
+              .goToTab(index),
+          items: <BottomNavigationBarItem>[
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.explore),
+              label: "Explore",
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.book),
+              label: "Recipes",
+            ),
+            const BottomNavigationBarItem(
+              icon: Icon(Icons.list),
+              label: "To Buy",
+            )
+          ],
+        ),
       ),
     );
   }
