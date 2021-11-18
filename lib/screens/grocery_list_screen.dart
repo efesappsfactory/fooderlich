@@ -46,7 +46,9 @@ class GroceryListScreen extends StatelessWidget {
                   }
                 },
               ),
-              onTap: () {},
+              onTap: () {
+                manager.groceryItemTapped(index);
+              },
             ),
           );
         },
