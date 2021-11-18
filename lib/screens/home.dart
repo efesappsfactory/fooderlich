@@ -84,7 +84,8 @@ class _HomeState extends State<Home> {
           backgroundColor: Colors.transparent,
           backgroundImage: AssetImage("assets/profile_pics/person_stef.jpeg"),
         ),
-        onTap: () {},
+        onTap: () => Provider.of<ProfileManager>(context, listen: false)
+            .tapOnProfile(true),
       ),
     );
   }

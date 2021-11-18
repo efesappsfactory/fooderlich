@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:fooderlich/screens/onboarding_screen.dart';
 import '../models/models.dart';
 import '../screens/screens.dart';
 
@@ -58,6 +57,8 @@ class AppRouter extends RouterDelegate
               index,
             ),
           ),
+        if (profileManager.didSelectUser)
+          ProfileScreen.page(profileManager.getUser),
       ],
     );
   }
@@ -74,6 +75,9 @@ class AppRouter extends RouterDelegate
     }
     if (route.settings.name == FooderlichPages.groceryItemDetails) {
       groceryManager.groceryItemTapped(-1);
+    }
+    if (route.settings.name == FooderlichPages.profilePath) {
+      profileManager.tapOnProfile(false);
     }
     return true;
   }

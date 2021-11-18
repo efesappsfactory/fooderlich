@@ -4,6 +4,14 @@ import '../components/circle_image.dart';
 import '../models/models.dart';
 
 class ProfileScreen extends StatefulWidget {
+  static MaterialPage page(User user) {
+    return MaterialPage(
+      name: FooderlichPages.profilePath,
+      key: ValueKey(FooderlichPages.profilePath),
+      child: ProfileScreen(user: user),
+    );
+  }
+
   final User user;
   const ProfileScreen({
     Key? key,
@@ -21,7 +29,8 @@ class _ProfileScreenState extends State<ProfileScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.close),
-          onPressed: () {},
+          onPressed: () => Provider.of<ProfileManager>(context, listen: false)
+              .tapOnProfile(false),
         ),
       ),
       body: Center(
