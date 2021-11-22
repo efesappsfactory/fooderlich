@@ -34,4 +34,35 @@ class AppLink {
 
     return link;
   }
+
+  String toLocation() {
+    String addKeyValPair({
+      required String key,
+      String? value,
+    }) =>
+        value == null ? "" : "$key=$value&";
+
+    switch (location) {
+      case kLoginPath:
+        return kLoginPath;
+      case kOnboardingPath:
+        return kOnboardingPath;
+      case kProfilePath:
+        return kProfilePath;
+      case kItemPath:
+        var loc = "$kItemPath?";
+        loc += addKeyValPair(
+          key: kIdParam,
+          value: itemId,
+        );
+        return Uri.encodeFull(loc);
+      default:
+        var loc = "$kHomePath?";
+        loc += addKeyValPair(
+          key: kTabParam,
+          value: currentTab.toString(),
+        );
+        return Uri.encodeFull(loc);
+    }
+  }
 }
